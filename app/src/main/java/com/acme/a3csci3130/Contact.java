@@ -17,6 +17,7 @@ public class Contact implements Serializable {
     public  String uid;
     public  String name;
     public  String businessNumber;
+    public  String primaryBusiness;
     public  String address;
     public  String provinceTerritory;
 
@@ -24,11 +25,21 @@ public class Contact implements Serializable {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
-    public Contact(String uid, String name, String businessNumber, String address,
-                   String provinceTerritory){
+    /**
+     * Constructor method for the Contact class
+     * @param uid                A string which will uniquely identify an instance in firebase
+     * @param name               The name of the business
+     * @param businessNumber     The number of the business
+     * @param primaryBusiness    The type of business
+     * @param address            The address of the business
+     * @param provinceTerritory  The province or territory in which the business operates
+     */
+    public Contact(String uid, String name, String businessNumber, String primaryBusiness,
+                   String address, String provinceTerritory){
         this.uid               = uid;
         this.name              = name;
         this.businessNumber    = businessNumber;
+        this.primaryBusiness   = primaryBusiness;
         this.address           = address;
         this.provinceTerritory = provinceTerritory;
     }
@@ -39,6 +50,7 @@ public class Contact implements Serializable {
         result.put("uid", uid);
         result.put("name", name);
         result.put("businessNumber", businessNumber);
+        result.put("primaryBusiness", primaryBusiness);
         result.put("address", address);
         result.put("provinceTerritory", provinceTerritory);
 
